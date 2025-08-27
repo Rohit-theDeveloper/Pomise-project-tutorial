@@ -77,3 +77,32 @@ async function consumePromiseFive() {
 }
 
 consumePromiseFive();
+
+
+//  now we use async /await with fetch () to fetch user data with the help of api 
+
+// async function getUserData(){
+//   try{
+
+//     const result =  await fetch('https://dummyjson.com/users')
+//     const data = await result.json();
+//     console.log(data) 
+//     console.log(data.users[1]);
+//   }catch(err){
+//   console.log("error message :", err);
+//   }
+// }
+
+// getUserData();
+
+//  now i will do the above thing using fetch () and . then method 
+
+fetch('https://dummyjson.com/users')
+.then( result => {
+  return result.json();
+}).then( data => {
+  console.log(data);
+  console.log(data.users[0].address.city);
+}).catch( err => {
+  console.log(err)
+})
